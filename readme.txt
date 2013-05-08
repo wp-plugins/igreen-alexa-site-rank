@@ -15,11 +15,38 @@ This Plugin lets you know your ALEXA RANK. This offer several ways to integrate 
 
 As using this you can get ALEXA RANK in php variable so you can easily integrate and customize look of your ALEXA RANK.
 
-In theme you can get ALEXA RANK by only <?php echo getAlexaRank($url); ?> or using short code [ ALEXARANK ]
+1. To Print Alexa Rank using short code
+
+[AlexaRank]
+
+2. To Print Alexa Rank in your theme
+
+echo getAlexaRank();
+
+or
+
+AlexaRank();
+
+3. To Print Alexa Rank of a website using theme
+
+echo getAlexaRankbySiteName("www.susheelonline.com");
+
+or 
+
+AlexaRankbySiteName("www.susheelonline.com");
+
+4. To print Alexa Rank in side bar
+
+use widget Igreen Alexa Site Rank Widget 
+
+Demo please have a look at http://forameal.com/?page_id=7 here all the things work.
+
 
 == Installation ==
 
 Upload the Igreen Alexa Site Rank plugin to your blog and activate it.
+
+
 
 == Manual Installation ==
 

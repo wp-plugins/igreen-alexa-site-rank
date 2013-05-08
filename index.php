@@ -12,81 +12,122 @@ License: GPL2
 
 /* short code generating */
 
-add_shortcode( "ALEXARANK" , "getAlexaRank" );
+add_shortcode( "ALEXARANK" , "AlexaRank" );
 
  
  function  getAlexaRankbySiteName($url)
  {
   $AlexaRank = new AlexaRank($url );
-  return   number_format($AlexaRank->get('rank')) ;
+  return   number_format($AlexaRank->get()) ;
  }
+ 
+ 
   function  AlexaRankbySiteName($url)
  {
-  $AlexaRank = new AlexaRank($url );
-  echo  number_format($AlexaRank->get('rank')) ;
+ 
+  echo getAlexaRankbySiteName($url);
  }
  
  
  
 function  getAlexaRank()
  {
+	 
  $AlexaRank = new AlexaRank($_SERVER['HTTP_HOST'] );
- return   number_format($AlexaRank->get('rank')) ;
+ return   number_format($AlexaRank->get()) ;
 }
 				
  function  AlexaRank()
  {
- $AlexaRank = new AlexaRank($_SERVER['HTTP_HOST'] );
+ 
   echo  getAlexaRank();
+
 }
  
  /* /4 API IS HERE */
+  
  
- /* widget code start */
-class IGREENALEXA extends WP_Widget {
- 
-	function MyNewWidget() {
-		// Instantiate the parent object
-		parent::__construct( false, 'IGREEN Alexa Rank Widget' );
-		 
+class igreen_alexa_widget extends WP_Widget {
+
+	/**
+	 * Register widget with WordPress.
+	 */
+	public function __construct() {
+		parent::__construct(
+	 		'igreen_alexa_widget', // Base ID
+			'Igreen_Alexa_Widget', // Name
+			array( 'description' => __( 'Igreen Alexa Site Rank Widget', 'text_domain' ), ) // Args
+		);
 	}
 
-	function widget( $args, $instance ) {
-		// Widget output
-		echo "<BR>Alexa Rank of this site susheelonline.com IS ";
-		  AlexaRank();
-		//echo getAlexaRank();
+	/**
+	 * Front-end display of widget.
+	 *
+	 * @see WP_Widget::widget()
+	 *
+	 * @param array $args     Widget arguments.
+	 * @param array $instance Saved values from database.
+	 */
+	public function widget( $args, $instance ) {
+		extract( $args );
+		$title = apply_filters( 'widget_title', $instance['title'] );
 
-		echo "<BR>Alexa Rank of site BLOGENTRY.IN IS ";
-		echo getAlexaRankbySiteName("blogentry.in");
-				
+		echo $before_widget;
+		if ( ! empty( $title ) )
+			echo $before_title . $title . $after_title;
+		echo "Alexa Rank of ".$_SERVER['HTTP_HOST']." is " ;
+		echo  getAlexaRank();
+		echo $after_widget;
 	}
 
-	function update( $new_instance, $old_instance ) {
-		// Save widget options
+	/**
+	 * Sanitize widget form values as they are saved.
+	 *
+	 * @see WP_Widget::update()
+	 *
+	 * @param array $new_instance Values just sent to be saved.
+	 * @param array $old_instance Previously saved values from database.
+	 *
+	 * @return array Updated safe values to be saved.
+	 */
+	public function update( $new_instance, $old_instance ) {
+		$instance = array();
+		$instance['title'] = strip_tags( $new_instance['title'] );
+
+		return $instance;
 	}
 
-	function form( $instance ) {
-		// Output admin widget options form
+	/**
+	 * Back-end widget form.
+	 *
+	 * @see WP_Widget::form()
+	 *
+	 * @param array $instance Previously saved values from database.
+	 */
+	public function form( $instance ) {
+		if ( isset( $instance[ 'title' ] ) ) {
+			$title = $instance[ 'title' ];
+		}
+		else {
+			$title = __( 'New title', 'text_domain' );
+		}
+		?>
+		<p>
+		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
+		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+		</p>
+		<?php 
 	}
-}
 
-function IGREENALEXA_register_widgets() {
-	register_widget( 'IGREENALEXA' );
-}
+} // class Foo_Widget
 
-add_action( 'widgets_init', 'IGREENALEXA_register_widgets' );
-
-
-
-
-
-
+// register Foo_Widget widget
+add_action( 'widgets_init', create_function( '', 'register_widget( "Igreen_Alexa_Widget" );' ) );
 		 
 	
 class AlexaRank extends ParseXml{
 	private $data;
-	private $values = array();
+	private $rank ;
 	
 	function __construct($domain) {
 		$this->data = $this->fetchData($domain);
@@ -109,9 +150,8 @@ class AlexaRank extends ParseXml{
 	 * @return the rank 
 	*/
 	private function findValue() {
-		$this->values = array(
-			'rank' => (isset($this->data['SD'][1]['POPULARITY']['@attributes']['TEXT']) ? ($this->data['SD'][1]['POPULARITY']['@attributes']['TEXT']) : NULL),
-		 );
+		 
+     $this->rank= isset($this->data['SD'][1]['POPULARITY']['@attributes']['TEXT']) ? ($this->data['SD'][1]['POPULARITY']['@attributes']['TEXT']) : 0;
 	}
 	
 	/**
@@ -119,12 +159,8 @@ class AlexaRank extends ParseXml{
 	 * @return the rank 
 	*/
 	
-	public function get($value = NULL){
-		if($value === NULL) {
-			return $this->values; //Return the total Array
-		} else {
-			return (isset($this->values[$value]) ? $this->values[$value] : '"'.$value.'" does not exist.');
-		}	
+	public function get(){
+	 return     $this->rank;
 	}
 	
 } 
