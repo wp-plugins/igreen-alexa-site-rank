@@ -17,29 +17,29 @@ As using this you can get ALEXA RANK in php variable so you can easily integrate
 
 1. To Print Alexa Rank using short code
 
-[AlexaRank]
+		[AlexaRank]
 
 2. To Print Alexa Rank in your theme
 
-echo getAlexaRank();
+		echo getAlexaRank();
 
-or
+		or
 
-AlexaRank();
+		AlexaRank();
 
 3. To Print Alexa Rank of a website using theme
 
-echo getAlexaRankbySiteName("www.susheelonline.com");
+		echo getAlexaRankbySiteName("www.susheelonline.com");
 
-or 
+		or 
 
-AlexaRankbySiteName("www.susheelonline.com");
+		AlexaRankbySiteName("www.susheelonline.com");
 
 4. To print Alexa Rank in side bar
 
 use widget Igreen Alexa Site Rank Widget 
 
-Demo please have a look at http://forameal.com/?page_id=7 here all the things work.
+ 
 
 
 == Installation ==
