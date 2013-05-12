@@ -7,7 +7,7 @@ Tested up to: 3.5
 Stable tag: 1.0
 License: GPLv2 or later
 
-Get your updated ALEXA RANK in widgets or integrate in theme using plugin API/ shortcode.You can configure your page rank  anywhere in your blog
+Get your updated ALEXA RANK in widgets or integrate in theme using plugin API/ shortcode.You can display your page rank  anywhere in your blog
 
 == Description ==
 
@@ -37,7 +37,7 @@ As using this you can get ALEXA RANK in php variable so you can easily integrate
 
 4. To print Alexa Rank in side bar
 
-use widget Igreen Alexa Site Rank Widget 
+		use widget Igreen Alexa Site Rank Widget 
 
  
 
