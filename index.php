@@ -1,10 +1,9 @@
 <?php
-
 /*
 Plugin Name: Igreen Alexa Site Rank
 Plugin URI: http://susheelonline.com
 Description: Get your updated ALEXA RANK in widgets or integrate in theme using plugin API/ shortcode
-Version: 1.0
+Version: 1.0.1
 Author: Susheel Kumar ,Ritu Kushwaha
 Author URI: http://susheelonline.com
 License: GPL2
@@ -324,6 +323,16 @@ class AlexaRank extends ParseXml{
 
 
 
+// adding admin page
+add_action( 'admin_menu', 'igreen_alexa_page' );
 
+function igreen_alexa_page(){
+    add_menu_page( 'Alexa Site Rank', 'Alexa Rank', 'manage_options', 'igreen_alexa_rank', 'igreen_menu_page', plugins_url( 'myplugin/images/icon.png' ), 6 ); 
+}
 
+function igreen_menu_page(){
+    echo "<h1>Looking For some Freelance Work</h1>"; 
+echo "<P>Dear Friends,<BR> <BR> I am a Expert freelancer web developer and have managed a number of projects based on wordpress and a number  of more technologies. I do full time work and my rates are 15USD for an hour.<br><br> If you have any requirements in wordpress please hire me I will work with full dedication<br><br>SKYPE GCSPLINDIA <BR><BR>EMAIL SUSHEELHBTI@GMAIL.COM</P>";
+
+}
 ?>
