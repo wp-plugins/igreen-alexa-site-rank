@@ -3,7 +3,7 @@ Contributors: Susheel Kumar, Ritu Kushwaha
 Donate link: http://www.susheelonline.com/
 Tags: seo, alexa rank, alexa rank widgets, alexa api 
 Requires at least: 3.0
-Tested up to: 3.5
+Tested up to: 3.9
 Stable tag: 1.0
 License: GPLv2 or later
 
@@ -59,3 +59,8 @@ Upload the plugin to the plugins directory, extract it and after activate it.
 = 1.0 =
 
 First release
+
+
+= 1.0.1 =
+
+Update the back end page and change it in core program
