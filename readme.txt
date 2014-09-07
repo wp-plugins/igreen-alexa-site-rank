@@ -3,7 +3,7 @@ Contributors: Susheel Kumar, Ritu Kushwaha
 Donate link: http://www.susheelonline.com/
 Tags: seo, alexa rank, alexa rank widgets, alexa api 
 Requires at least: 3.0
-Tested up to: 3.9
+Tested up to: 4.0
 Stable tag: 1.0
 License: GPLv2 or later
 
