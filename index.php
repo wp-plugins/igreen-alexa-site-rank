@@ -3,7 +3,7 @@
 Plugin Name: Igreen Alexa Site Rank
 Plugin URI: http://susheelonline.com
 Description: Get your updated ALEXA RANK in widgets or integrate in theme using plugin API/ shortcode
-Version: 1.0.1
+Version: 2.0.0
 Author: Susheel Kumar ,Ritu Kushwaha
 Author URI: http://susheelonline.com
 License: GPL2
