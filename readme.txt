@@ -1,5 +1,5 @@
 === Igreen Alexa Site Rank ===
-Contributors: Susheel Kumar, Ritu Kushwaha
+Contributors: susheelhbti
 Donate link: http://www.susheelonline.com/
 Tags: seo, alexa rank, alexa rank widgets, alexa api 
 Requires at least: 3.0

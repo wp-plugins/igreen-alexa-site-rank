@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Igreen Alexa Site Rank
-Plugin URI: http://susheelonline.com
+Plugin URI: https://wordpress.org/plugins/igreen-alexa-site-rank/
 Description: Get your updated ALEXA RANK in widgets or integrate in theme using plugin API/ shortcode
 Version: 2.0.0
-Author: Susheel Kumar ,Ritu Kushwaha
-Author URI: http://susheelonline.com
+Author: susheelhbti
+Author URI: http://sakshamappinternational.com/
 License: GPL2
 */
 
@@ -323,16 +323,29 @@ class AlexaRank extends ParseXml{
 
 
 
-// adding admin page
-add_action( 'admin_menu', 'igreen_alexa_page' );
 
-function igreen_alexa_page(){
-    add_menu_page( 'ET Services ', 'ET Services ', 'manage_options', 'igreen_alexa_rank', 'igreen_menu_page', plugins_url( 'igreen-alexa-site-rank/al.jpg' ), 6 ); 
+/**
+ * Add a widget to the dashboard.
+ *
+ * This function is hooked into the 'wp_dashboard_setup' action below.
+ */
+function saksh_dashboard_widgets() {
+
+	wp_add_dashboard_widget(
+                 'saksh_dashboard_widget',         // Widget slug.
+                 'Sakshamapp International Pvt. Ltd. Offer',         // Title.
+                 'saksh_dashboard_widget_function' // Display function.
+        );	
 }
+add_action( 'wp_dashboard_setup', 'saksh_dashboard_widgets' );
 
-function igreen_menu_page(){
-    $h=file_get_contents( "http://www.magentoexpertteam.com/offer.php");
-	echo $h;
+/**
+ * Create the function to output the contents of our Dashboard Widget.
+ */
+function saksh_dashboard_widget_function() {
 
+	// Display whatever it is you want to show.
+	echo "<center><br><br><H1><A href='http://www.sakshamappinternational.com/free-cloud-server/?q=saksh-wp-smtp' target='_blank'>Get Free Cloud Hosting for 90 Days.</a></H1><br><br>No Credit Card required. This is free offer with full cpanel access by <b>Sakshamapp International Pvt. Ltd.</b> .Register and get start <a href='http://www.sakshamappinternational.com/free-cloud-server/?q=saksh-wp-smtp'  target='_blank'>http://www.sakshamappinternational.com</a>  </center>";
 }
+ 
 ?>
