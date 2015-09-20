@@ -3,7 +3,7 @@
 Plugin Name: Igreen Alexa Site Rank
 Plugin URI: https://wordpress.org/plugins/igreen-alexa-site-rank/
 Description: Get your updated ALEXA RANK in widgets or integrate in theme using plugin API/ shortcode
-Version: 2.0.0
+Version: 4.0.0
 Author: susheelhbti
 Author URI: http://sakshamappinternational.com/
 License: GPL2
@@ -55,7 +55,7 @@ class igreen_alexa_widget extends WP_Widget {
 		parent::__construct(
 	 		'igreen_alexa_widget', // Base ID
 			'Igreen_Alexa_Widget', // Name
-			array( 'description' => __( 'Igreen Alexa Site Rank Widget', 'text_domain' ), ) // Args
+			array( 'description' => __( 'Igreen Alexa Site Rank Widget', 'sakshamapp' ), ) // Args
 		);
 	}
 
@@ -108,7 +108,7 @@ class igreen_alexa_widget extends WP_Widget {
 			$title = $instance[ 'title' ];
 		}
 		else {
-			$title = __( 'New title', 'text_domain' );
+			$title = __( 'New title', 'sakshamapp' );
 		}
 		?>
 		<p>

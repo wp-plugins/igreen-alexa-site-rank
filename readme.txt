@@ -1,6 +1,6 @@
 === Igreen Alexa Site Rank ===
 Contributors: susheelhbti
-Donate link: http://www.susheelonline.com/
+Donate link: http://sakshamappinternational.com/
 Tags: seo, alexa rank, alexa rank widgets, alexa api 
 Requires at least: 3.0
 Tested up to: 4.0
@@ -29,11 +29,11 @@ As using this you can get ALEXA RANK in php variable so you can easily integrate
 
 3. To Print Alexa Rank of a website using theme
 
-		echo getAlexaRankbySiteName("www.susheelonline.com");
+		echo getAlexaRankbySiteName("www.sakshamappinternational.com");
 
 		or 
 
-		AlexaRankbySiteName("www.susheelonline.com");
+		AlexaRankbySiteName("www.sakshamappinternational.com");
 
 4. To print Alexa Rank in side bar
 
@@ -64,3 +64,8 @@ First release
 = 1.0.1 =
 
 Update the back end page and change it in core program
+
+
+= 4.0.0 =
+
+Release after testing with wordpress version 4.x
